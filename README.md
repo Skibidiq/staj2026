@@ -130,6 +130,10 @@ Bu yazı bu konuda yardımcı olacaktır: [ilk-adımını-at-ekip-çalışmasıy
 
 # Geçmiş Dönemler
 
+## 2025 
+Yaklaşık 500+ arkadaşa bu repo ile bir imkan sağlamıştık. (Kapatılan)
+https://www.linkedin.com/feed/update/urn:li:activity:7312058541031264256/
+
 ## 2024 
 Yaklaşık 300+ arkadaşa bu repo ile bir imkan sağlamıştık. (Kapatılan)
 https://www.linkedin.com/feed/update/urn:li:activity:7191692371082854401/
