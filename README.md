@@ -86,6 +86,21 @@ Veli Bacik [pm,qa,data-science][uzaktan][zorunlu][4-hafta]
 - Başvuru formatı kontrolü, detaylı hata mesajları ve örnekler
 - Doğru formatta başvuranlar otomatik etiketlenir
 
+## 📊 İstatistikler
+**Toplam Başvuru:** 0
+**Son 24 Saat:** 0 başvuru
+**Bu Hafta:** 0 başvuru
+**Bu Ay:** 0 başvuru
+
+### 🎯 En Çok Tercih Edilen Alanlar
+
+### 📍 Staj Yeri Tercihleri
+
+### 🎓 Staj Tipi Dağılımı
+
+### ⏱️ Staj Süresi Tercihleri
+
+*Son güncelleme: 19.02.2026 21:48*
 ## FAQ
 
 #### Yeni issue açıyorum ama hemen kapanıyor ne yapsam oluşturamadım. Ne yapmalıyım?
