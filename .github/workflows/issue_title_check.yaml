@@ -15,42 +15,28 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - name: Read Labels JSON
-        id: labels
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const fs = require('fs');
-            const path = require('path').join(process.cwd(), '.github', 'labels.json');
-            try {
-              const content = fs.readFileSync(path, 'utf8');
-              const labels = JSON.parse(content);
-              core.setOutput('result', JSON.stringify(labels));
-            } catch (error) {
-              core.setFailed(`Error reading labels: ${error.message}`);
-            }
-
       - name: Check issue title format
         id: check_format
         uses: actions/github-script@v7
-        env:
-          # Tırnak içine alınmazsa JSON içindeki : YAML'da hata verir
-          LABELS_JSON: '${{ steps.labels.outputs.result }}'
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const issueTitle = context.payload.issue.title;
+            const fs = require('fs');
+            const path = require('path');
+            const labelsPath = path.join(process.cwd(), '.github', 'labels.json');
             let labels;
             try {
-              labels = JSON.parse(process.env.LABELS_JSON || '{}');
+              const content = fs.readFileSync(labelsPath, 'utf8');
+              labels = JSON.parse(content);
             } catch (e) {
-              core.setFailed('Labels configuration not found or invalid JSON');
+              core.setFailed('Labels configuration not found: ' + e.message);
               return false;
             }
             if (!labels || Object.keys(labels).length === 0) {
               core.setFailed('Labels configuration not found');
               return false;
             }
+            const issueTitle = context.payload.issue.title;
 
             const labelGroups = issueTitle.match(/\[([^\]]+)\]/g);
             
@@ -74,13 +60,13 @@ jobs:
       - name: Add comment and close issue if format is invalid
         if: ${{ steps.check_format.outputs.result == 'false' }}
         uses: actions/github-script@v7
-        env:
-          LABELS_JSON: '${{ steps.labels.outputs.result }}'
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
+            const fs = require('fs');
+            const path = require('path');
+            const labels = JSON.parse(fs.readFileSync(path.join(process.cwd(), '.github', 'labels.json'), 'utf8'));
             const issueTitle = context.payload.issue.title;
-            const labels = JSON.parse(process.env.LABELS_JSON || '{}');
             const labelGroups = issueTitle.match(/\[([^\]]+)\]/g);
             
             let errorReason = '';
@@ -152,18 +138,18 @@ jobs:
       - name: Label the issue
         uses: actions/github-script@v7
         if: ${{ steps.check_format.outputs.result == 'true' }}
-        env:
-          LABELS_JSON: '${{ steps.labels.outputs.result }}'
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
+            const fs = require('fs');
+            const path = require('path');
+            const fields = JSON.parse(fs.readFileSync(path.join(process.cwd(), '.github', 'labels.json'), 'utf8'));
             const title = context.payload.issue.title;
             const issue_number = context.issue.number;
             const issue_author = context.payload.issue.user.login;
             const issueUrl = context.payload.issue.html_url;
             const issueState = context.payload.issue.state;
             const labelsToAdd = new Set();
-            const fields = JSON.parse(process.env.LABELS_JSON || '{}');
 
             const labelGroups = title.match(/\[([^\]]+)\]/g);
             
