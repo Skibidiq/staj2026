@@ -12,30 +12,38 @@ jobs:
   add-labels:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Read Labels JSON
+        id: labels
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = './.github/labels.json';
+            try {
+              const content = fs.readFileSync(path);
+              const labels = JSON.parse(content);
+              return labels;
+            } catch (error) {
+              core.setFailed(`Error reading labels: ${error.message}`);
+              return null;
+            }
+
       - name: Check issue title format
         id: check_format
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            let labels;
-            try {
-              const { data } = await github.rest.repos.getContent({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                path: '.github/labels.json'
-              });
-              const content = Buffer.from(data.content, 'base64').toString('utf8');
-              labels = JSON.parse(content);
-            } catch (e) {
-              core.setFailed('.github/labels.json repoda bulunamıyor veya geçersiz. Dosyayı varsayılan branch\'e ekleyip push edin. Hata: ' + e.message);
-              return false;
-            }
-            if (!labels || Object.keys(labels).length === 0) {
+            const issueTitle = context.payload.issue.title;
+            const labels = ${{ steps.labels.outputs.result }};
+            
+            if (!labels) {
               core.setFailed('Labels configuration not found');
               return false;
             }
-            const issueTitle = context.payload.issue.title;
 
             const labelGroups = issueTitle.match(/\[([^\]]+)\]/g);
             
@@ -62,13 +70,8 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const { data } = await github.rest.repos.getContent({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              path: '.github/labels.json'
-            });
-            const labels = JSON.parse(Buffer.from(data.content, 'base64').toString('utf8'));
             const issueTitle = context.payload.issue.title;
+            const labels = ${{ steps.labels.outputs.result }};
             const labelGroups = issueTitle.match(/\[([^\]]+)\]/g);
             
             let errorReason = '';
@@ -92,36 +95,11 @@ jobs:
               }
             }
 
-            // Format örnekleri oluştur
-            const examples = [
-              'Veli Bacik [mobile,backend][uzaktan][zorunlu][4-hafta]',
-              'Ayşe Yılmaz [frontend][yüzyüze][gönüllü][6-hafta]',
-              'Mehmet Demir [pm,qa][uzaktan][zorunlu][4-hafta]',
-              'Zeynep Kaya [data-science][uzaktan][zorunlu][6-hafta]'
-            ];
-            
-            // Geçerli etiketleri göster
-            const validLabelsInfo = Object.entries(labels).map(([field, validLabels]) => {
-              return `**${field}**: ${validLabels.join(', ')}`;
-            }).join('\n');
-            
-            // Başlık düzeltme önerisi
-            let suggestion = '';
-            if (labelGroups && labelGroups.length > 0) {
-              const nameMatch = issueTitle.match(/^([^\[]+)/);
-              const name = nameMatch ? nameMatch[1].trim() : 'Ad Soyad';
-              suggestion = `\n💡 **Önerilen Format:**\n\`${name} [ALAN][STAJ YERİ][STAJ TİPİ][STAJ SÜRESİ]\`\n`;
-            }
-
-            const comment = '## ⚠️ Format Hatası\n\n' +
-              'Merhaba @' + context.actor + ', bu issue\'nun başlığı belirlenen formata uymuyor.\n\n' +
-              '### 🔍 Hata Nedeni:\n' + errorReason + '\n\n' +
-              '### 📋 Doğru Format:\nBaşlık şu formatta olmalıdır:\n' +
-              '```\nAD-SOYAD [ALAN][STAJ YERİ][STAJ TİPİ][STAJ SÜRESİ]\n```\n\n' +
-              '### ✅ Geçerli Etiketler:\n' + validLabelsInfo + '\n' + suggestion +
-              '### 📝 Örnek Başlıklar:\n' + examples.map(ex => '- `' + ex + '`').join('\n') + '\n\n' +
-              '### 🔗 Daha Fazla Bilgi:\nDetaylı örnekler için [README dosyasını](https://github.com/' + context.repo.owner + '/' + context.repo.repo + '#-örnek-başvuru-başlıkları) inceleyebilirsiniz.\n\n---\n' +
-              '💡 **Not:** Başlığı düzelttikten sonra issue otomatik olarak yeniden açılacaktır.';
+            const comment = 'Merhaba @' + context.actor + ', bu issue\'nun başlığı belirlenen formata uymuyor.\n\n' +
+              'Hata Nedeni:\n' + errorReason + '\n\n' +
+              'Lütfen başlığı "AD-SOYAD [ALAN][STAJ YERİ][STAJ TİPİ][STAJ SÜRESİ]" formatına uygun hale getirin.\n\n' +
+              'Örnekler için: https://github.com/' + context.repo.owner + '/' + context.repo.repo + '#-örnek-başvuru-başlıkları\n\n' +
+              'Bu işlemi tamamladıktan sonra issue başlığını güncelleyin.';
             
             await github.rest.issues.createComment({
               owner: context.repo.owner,
@@ -143,18 +121,12 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const { data } = await github.rest.repos.getContent({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              path: '.github/labels.json'
-            });
-            const fields = JSON.parse(Buffer.from(data.content, 'base64').toString('utf8'));
             const title = context.payload.issue.title;
             const issue_number = context.issue.number;
             const issue_author = context.payload.issue.user.login;
-            const issueUrl = context.payload.issue.html_url;
             const issueState = context.payload.issue.state;
             const labelsToAdd = new Set();
+            const fields = ${{ steps.labels.outputs.result }};
 
             const labelGroups = title.match(/\[([^\]]+)\]/g);
             
@@ -168,7 +140,7 @@ jobs:
                 for (const [field, validLabels] of Object.entries(fields)) {
                   if (validLabels.includes(tag)) {
                     labelsToAdd.add(tag);
-                    break; // Exit loop once we find a match
+                    break;
                   }
                 }
               });
@@ -195,18 +167,18 @@ jobs:
             }
 
             await github.rest.issues.addAssignees({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: issue_number,
-                assignees: [issue_author]
-              });
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue_number,
+              assignees: [issue_author]
+            });
 
             const comment = 'Merhaba @' + context.actor + ', staj başvurun başarı ile taglendi.. ' +
               'Lütfen staj bulduktan sonra buraya gelip kapatmayı unutma. ' +
               'Şimdiden bol şans ve sakın unutma staj ne başlangıç ne son çok çalışmak lazım.';
             await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: issue_number,
-                body: comment
-              });
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue_number,
+              body: comment
+            });
