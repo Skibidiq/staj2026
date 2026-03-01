@@ -87,41 +87,41 @@ Veli Bacik [pm,qa,data-science][uzaktan][zorunlu][4-hafta]
 - Doğru formatta başvuranlar otomatik etiketlenir
 
 ## 📊 İstatistikler
-**Toplam Başvuru:** 100
-**Son 24 Saat:** 5 başvuru
-**Bu Hafta:** 58 başvuru
-**Bu Ay:** 99 başvuru
+**Toplam Başvuru:** 104
+**Son 24 Saat:** 4 başvuru
+**Bu Hafta:** 42 başvuru
+**Bu Ay:** 103 başvuru
 
 ### 🎯 En Çok Tercih Edilen Alanlar
-1. **backend**: 66 başvuru (66.0%)
-2. **data-science**: 49 başvuru (49.0%)
-3. **data-analyst**: 38 başvuru (38.0%)
-4. **mobile**: 37 başvuru (37.0%)
-5. **frontend**: 33 başvuru (33.0%)
-6. **database**: 33 başvuru (33.0%)
-7. **system**: 17 başvuru (17.0%)
-8. **networking**: 12 başvuru (12.0%)
-9. **embedded**: 9 başvuru (9.0%)
-10. **hardware**: 9 başvuru (9.0%)
+1. **backend**: 69 başvuru (66.3%)
+2. **data-science**: 51 başvuru (49.0%)
+3. **mobile**: 40 başvuru (38.5%)
+4. **data-analyst**: 40 başvuru (38.5%)
+5. **database**: 34 başvuru (32.7%)
+6. **frontend**: 33 başvuru (31.7%)
+7. **system**: 17 başvuru (16.3%)
+8. **networking**: 13 başvuru (12.5%)
+9. **cyber-security**: 9 başvuru (8.7%)
+10. **embedded**: 9 başvuru (8.7%)
 
 ### 📍 Staj Yeri Tercihleri
-- **yüzyüze**: 89 başvuru (89.0%)
-- **uzaktan**: 65 başvuru (65.0%)
+- **yüzyüze**: 93 başvuru (89.4%)
+- **uzaktan**: 67 başvuru (64.4%)
 
 ### 🎓 Staj Tipi Dağılımı
-- **zorunlu**: 73 başvuru (73.0%)
-- **gönüllü**: 22 başvuru (22.0%)
-- **zorunlu, gönüllü**: 2 başvuru (2.0%)
+- **zorunlu**: 77 başvuru (74.0%)
+- **gönüllü**: 22 başvuru (21.2%)
+- **zorunlu, gönüllü**: 2 başvuru (1.9%)
 - **gönüllü, zorunlu**: 1 başvuru (1.0%)
 - **zorunlu,gönüllü**: 1 başvuru (1.0%)
 
 ### ⏱️ Staj Süresi Tercihleri
-- **4-hafta**: 67 başvuru (67.0%)
-- **8-hafta**: 49 başvuru (49.0%)
-- **6-hafta**: 45 başvuru (45.0%)
+- **4-hafta**: 71 başvuru (68.3%)
+- **8-hafta**: 51 başvuru (49.0%)
+- **6-hafta**: 46 başvuru (44.2%)
 - **[4-hafta**: 1 başvuru (1.0%)
 
-*Son güncelleme: 28.02.2026 03:50*
+*Son güncelleme: 01.03.2026 04:20*
 ## FAQ
 
 #### Yeni issue açıyorum ama hemen kapanıyor ne yapsam oluşturamadım. Ne yapmalıyım?
