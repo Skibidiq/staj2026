@@ -5,7 +5,7 @@ import re
 import os
 
 
-github_repo = "VB10/staj2025"
+github_repo = "VB10/staj2026"
 github_api_url = f"https://api.github.com/repos/{github_repo}/issues?sort=created&direction=asc"
 # Import token from config file
 try:
